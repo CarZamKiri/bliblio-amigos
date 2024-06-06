@@ -1,5 +1,3 @@
-
-
 -- Estado usuarios - Usuarios 
 create table Estado_Usuarios(
     id_estatus serial primary key, 
@@ -7,7 +5,7 @@ create table Estado_Usuarios(
 ); 
 
 insert into Estado_Usuarios(nombre_estado)
-values ('Activo', 'Inactivo')
+values ('Activo'), ('Inactivo');
 
 -- Categorias - Libros 
 create table Categoria_Libros(
@@ -28,41 +26,14 @@ create table genero(
 ); 
 
 -- Inserción de géneros literarios
-insert into genero (nombre) values ('Ficción');
-insert into genero (nombre) values ('No ficción');
-insert into genero (nombre) values ('Ciencia ficción');
-insert into genero (nombre) values ('Fantasía');
-insert into genero (nombre) values ('Misterio');
-insert into genero (nombre) values ('Thriller');
-insert into genero (nombre) values ('Romance');
-insert into genero (nombre) values ('Horror');
-insert into genero (nombre) values ('Aventura');
-insert into genero (nombre) values ('Biografía');
-insert into genero (nombre) values ('Autobiografía');
-insert into genero (nombre) values ('Memorias');
-insert into genero (nombre) values ('Historia');
-insert into genero (nombre) values ('Poesía');
-insert into genero (nombre) values ('Drama');
-insert into genero (nombre) values ('Humor');
-insert into genero (nombre) values ('Ensayo');
-insert into genero (nombre) values ('Crimen');
-insert into genero (nombre) values ('Distopía');
-insert into genero (nombre) values ('Paranormal');
-insert into genero (nombre) values ('Viajes');
-insert into genero (nombre) values ('Educativo');
-insert into genero (nombre) values ('Juvenil');
-insert into genero (nombre) values ('Infantil');
-insert into genero (nombre) values ('Clásico');
-insert into genero (nombre) values ('Comedia');
-insert into genero (nombre) values ('Suspenso');
-insert into genero (nombre) values ('Cuento corto');
-insert into genero (nombre) values ('Gótica');
-insert into genero (nombre) values ('Histórica');
-insert into genero (nombre) values ('Novela gráfica');
-insert into genero (nombre) values ('Realismo mágico');
-insert into genero (nombre) values ('Policíaca');
-insert into genero (nombre) values ('Western');
-
+insert into genero (nombre) values 
+('Ficción'), ('No ficción'), ('Ciencia ficción'), ('Fantasía'), ('Misterio'), 
+('Thriller'), ('Romance'), ('Horror'), ('Aventura'), ('Biografía'), 
+('Autobiografía'), ('Memorias'), ('Historia'), ('Poesía'), ('Drama'), 
+('Humor'), ('Ensayo'), ('Crimen'), ('Distopía'), ('Paranormal'), 
+('Viajes'), ('Educativo'), ('Juvenil'), ('Infantil'), ('Clásico'), 
+('Comedia'), ('Suspenso'), ('Cuento corto'), ('Gótica'), ('Histórica'), 
+('Novela gráfica'), ('Realismo mágico'), ('Policíaca'), ('Western');
 
 -- Autores - Libros
 create table Autores(
@@ -82,7 +53,7 @@ create table Usuarios(
     ID serial primary key,
     nombre varchar(100) not null,
     nombreUsuario varchar(100) not null,
-    Email varchar(255) not null,
+    Email varchar(255) not null unique,
     FechaNacimiento date not null,
     Genero int not null,
     Estado int not null,
@@ -92,9 +63,9 @@ create table Usuarios(
 
 -- Contraseñas - Usuarios 
 create table Contrasenas(
-    Email varchar(255),
-    Contrasena varchar(200) not null
-	foreign key (Email) references Usuarios (Email)
+    Email varchar(255) primary key,
+    Contrasena varchar(200) not null,
+    foreign key (Email) references Usuarios (Email)
 );
 
 -- Perfil usuario - Usuario
