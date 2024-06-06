@@ -15,7 +15,7 @@
     <ul>
         <li><a href="#">Lista de libros </a></li>
         <li><a href="#">Categorias</a></li>
-        <li><a href="user_perfil/user_per.jsp">Perfil </a></li>
+        <li><a href="../userProfile/userProfile.jsp">Perfil </a></li>
         <li><a href="#">Reportes </a></li>
         <li><a href="create_users/newuser.jsp">Registrarse</a></li>
     </ul>
