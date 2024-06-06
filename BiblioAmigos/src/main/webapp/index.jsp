@@ -61,6 +61,6 @@
 </head>
 <body>
 <div id="aviso-conexion" class="aviso">Conexión establecida correctamente</div>
-<button onclick="window.location.href = 'user_C/user_in.jsp'">Ir a otra página</button>
+<button onclick="window.location.href = 'userC/userIN.jsp'">Ir a otra página</button>
 </body>
 </html>
