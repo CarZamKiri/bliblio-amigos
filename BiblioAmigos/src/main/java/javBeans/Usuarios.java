@@ -1,47 +1,36 @@
 package javBeans;
 
 public class Usuarios {
-
-    private int id;
+    private int ID;
     private String nombre;
     private String nombreUsuario;
-    private String contrasena;
     private String email;
+    private String anoNacimiento;
+    private String genero;
     private int estado;
-    private int tipo;
 
     public Usuarios() {
     }
 
-    public Usuarios(int id) {
-        this.id = id;
+    public Usuarios(int ID) {
+        this.ID = ID;
     }
 
-    public Usuarios(String nombre, String nombreUsuario, String contrasena, String email, int estado, int tipo) {
+    public Usuarios(String nombre, String nombreUsuario, String email, String anoNacimiento, String genero, int estado) {
         this.nombre = nombre;
         this.nombreUsuario = nombreUsuario;
-        this.contrasena = contrasena;
         this.email = email;
+        this.anoNacimiento = anoNacimiento;
+        this.genero = genero;
         this.estado = estado;
-        this.tipo = tipo;
     }
 
-    public Usuarios(int id, String nombre, String nombreUsuario, String contrasena, String email, int estado, int tipo) {
-        this.id = id;
-        this.nombre = nombre;
-        this.nombreUsuario = nombreUsuario;
-        this.contrasena = contrasena;
-        this.email = email;
-        this.estado = estado;
-        this.tipo = tipo;
+    public int getID() {
+        return ID;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+    public void setID(int ID) {
+        this.ID = ID;
     }
 
     public String getNombre() {
@@ -60,20 +49,28 @@ public class Usuarios {
         this.nombreUsuario = nombreUsuario;
     }
 
-    public String getContrasena() {
-        return contrasena;
-    }
-
-    public void setContrasena(String contrasena) {
-        this.contrasena = contrasena;
-    }
-
     public String getEmail() {
         return email;
     }
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getAnoNacimiento() {
+        return anoNacimiento;
+    }
+
+    public void setAnoNacimiento(String anoNacimiento) {
+        this.anoNacimiento = anoNacimiento;
+    }
+
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
     }
 
     public int getEstado() {
@@ -84,20 +81,16 @@ public class Usuarios {
         this.estado = estado;
     }
 
-    public int getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(int tipo) {
-        this.tipo = tipo;
-    }
-
     @Override
     public String toString() {
-        return "usuarios{" + "id=" + id + ", nombre=" + nombre + ", nombreUsuario=" + nombreUsuario + ", contrasena=" + contrasena + ", email=" + email + ", estado=" + estado + ", tipo=" + tipo + '}';
+        return "Usuarios{" +
+                "ID=" + ID +
+                ", nombre='" + nombre + '\'' +
+                ", nombreUsuario='" + nombreUsuario + '\'' +
+                ", email='" + email + '\'' +
+                ", anoNacimiento='" + anoNacimiento + '\'' +
+                ", genero='" + genero + '\'' +
+                ", estado=" + estado +
+                '}';
     }
-
-
-
-
 }
