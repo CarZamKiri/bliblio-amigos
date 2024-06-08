@@ -24,7 +24,7 @@
         <label>Email:</label>
         <p>Correo Electrónico</p>
       </div>
-      <!-- Agrega más información del perfil aquí -->
+
     </div>
   </div>
 </div>

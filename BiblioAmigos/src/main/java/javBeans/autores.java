@@ -1,35 +1,23 @@
 package javBeans;
 
-
-public class Autores {
+public class autores {
     private int idAutor;
     private String nombre;
     private String biografia;
 
-    // Constructor vacio
-    public Autores(){
+    public autores() {
 
     }
 
-    // Constructor para el id
-    public Autores(int idAutor){
+    public autores(int idAutor) {
         this.idAutor = idAutor;
     }
-    //Constructor para modificar
-    public Autores(String nombre, String biografia) {
-        this.nombre = nombre;
-        this.biografia = biografia;
-    }
-    // Constructor completo
 
-
-    public Autores(int idAutor, String nombre, String biografia) {
+    public autores(int idAutor, String nombre, String biografia) {
         this.idAutor = idAutor;
         this.nombre = nombre;
         this.biografia = biografia;
     }
-
-    // Getters and Setters
 
     public int getIdAutor() {
         return idAutor;
@@ -57,7 +45,7 @@ public class Autores {
 
     @Override
     public String toString() {
-        return "Autores{" +
+        return "autores{" +
                 "idAutor=" + idAutor +
                 ", nombre='" + nombre + '\'' +
                 ", biografia='" + biografia + '\'' +
