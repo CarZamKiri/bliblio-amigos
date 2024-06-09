@@ -46,4 +46,17 @@ input[type="button"] {
     cursor: pointer;
 }
 
+.back-button {
+    text-align: left;
+    margin-bottom: 20px;
+}
 
+.back-link {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}

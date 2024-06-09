@@ -1,3 +1,4 @@
+/* General Styles */
 body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
@@ -9,91 +10,91 @@ body {
     height: 100vh;
 }
 
+/* Container Styles */
 .container {
-    background-color: #fff;
+    background-color: #ffffff;
+    padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-    padding: 30px;
-    width: 400px;
-    max-width: 90%;
-    text-align: left;
-    position: relative;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 400px;
+    box-sizing: border-box;
 }
 
+/* Back Button Styles */
 .back-button {
-    position: absolute;
-    top: 10px;
-    left: 10px;
+    text-align: left;
+    margin-bottom: 20px;
 }
 
 .back-link {
+    color: #3498db;
     text-decoration: none;
-    color: #fff;
-    background-color: #8b6cfc;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 14px;
-    transition: background-color 0.3s ease;
+    font-weight: bold;
 }
 
 .back-link:hover {
-    background-color: #7554e2;
+    text-decoration: underline;
 }
 
+/* Form Styles */
 h1 {
-    color: #8b6cfc;
-    margin-bottom: 20px;
     text-align: center;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 15px;
 }
 
 label {
     display: block;
-    margin: 10px 0 5px;
+    margin-bottom: 5px;
     color: #333;
 }
 
 input[type="text"],
-input[type="password"],
-input[type="email"] {
+input[type="email"],
+input[type="password"] {
     width: 100%;
     padding: 10px;
-    margin: 5px 0 15px;
-    border: 1px solid #ddd;
+    border: 1px solid #ccc;
     border-radius: 5px;
     box-sizing: border-box;
-    font-size: 14px;
 }
 
 input[type="submit"] {
     width: 100%;
-    padding: 12px;
-    margin: 20px 0;
+    padding: 10px;
     border: none;
     border-radius: 5px;
-    background-color: #8b6cfc;
-    color: #fff;
+    background-color: #3498db;
+    color: white;
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 input[type="submit"]:hover {
-    background-color: #7554e2;
+    background-color: #2980b9;
 }
 
-@media (max-width: 600px) {
+/* Responsive Styles */
+@media (max-width: 480px) {
     .container {
-        padding: 20px;
+        padding: 15px;
+        width: 100%;
     }
 
     h1 {
-        font-size: 24px;
+        font-size: 1.5em;
     }
 
-    input[type="text"],
-    input[type="password"],
-    input[type="email"],
+    .back-link {
+        font-size: 1em;
+    }
+
     input[type="submit"] {
-        font-size: 16px;
+        font-size: 14px;
     }
 }

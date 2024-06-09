@@ -1,39 +1,101 @@
+/* General Styles */
 body {
     font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
     margin: 0;
     padding: 0;
-    background-color: #f5f5f5;
-}
-
-.container {
-    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
 
+.container {
+    width: 90%;
+    max-width: 800px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    margin: 20px;
+}
+
+.back-button {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.back-link {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+/* Profile Card Styles */
 .profile-card {
     background-color: #fff;
     border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-}
-
-.profile-header {
-    background-color: #009688;
-    color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
     text-align: center;
 }
 
-.profile-header h1 {
-    margin: 0;
-    font-size: 24px;
+.profile-header {
+    position: relative;
 }
 
+.profile-picture {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #3498db;
+    margin-bottom: 20px;
+}
+
+.profile-header h1 {
+    margin: 10px 0;
+    color: #333;
+}
+
+.bio {
+    font-style: italic;
+    color: #777;
+}
+
+.interests {
+    font-weight: bold;
+    color: #555;
+}
+
+.edit-button,
+.history-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #3498db;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.edit-button:hover,
+.history-button:hover {
+    background-color: #2980b9;
+}
+
+/* Profile Info Styles */
 .profile-body {
-    padding: 20px;
+    margin-top: 20px;
+    text-align: left;
 }
 
 .profile-info {
@@ -42,9 +104,11 @@ body {
 
 .profile-info label {
     font-weight: bold;
+    display: block;
+    color: #333;
 }
 
 .profile-info p {
-    margin: 5px 0;
-    color: #666;
+    margin: 5px 0 0;
+    color: #555;
 }

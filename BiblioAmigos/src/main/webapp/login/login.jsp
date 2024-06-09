@@ -1,5 +1,7 @@
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -10,6 +12,9 @@
 </head>
 <body>
 <div class="container">
+    <div class="back-button">
+        <a href="../userC/userIN.jsp" class="back-link">Atrás</a>
+    </div>
     <h1>UV LIBRARY</h1>
     <form action="#" method="post">
         <input type="text" name="username" placeholder="Nombre de Usuario" required><br>
