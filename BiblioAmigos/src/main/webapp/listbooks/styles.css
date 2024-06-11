@@ -1,0 +1,85 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container Styles */
+.container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 800px;
+    box-sizing: border-box;
+}
+
+/* Back Button Styles */
+.back-button {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.back-link {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+/* Title Styles */
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Book List Styles */
+.book-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.book-item {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.book-item h2 {
+    margin: 0 0 10px;
+    color: #333;
+}
+
+.book-item p {
+    margin: 5px 0;
+    color: #555;
+}
+
+/* Responsive Styles */
+@media (max-width: 480px) {
+    .container {
+        padding: 15px;
+        width: 100%;
+    }
+
+    .book-item h2 {
+        font-size: 1.2em;
+    }
+
+    .book-item p {
+        font-size: 0.9em;
+    }
+}

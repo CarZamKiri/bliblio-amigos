@@ -1,4 +1,4 @@
-package dao;
+package daos;
 
 import Modelo.ConexionBD;
 import javBeans.autores;

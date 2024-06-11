@@ -1,5 +1,5 @@
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="java.sql.*, java.util.*" %>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -13,12 +13,11 @@
     <h2>Menu</h2>
     <!-- Lista de opciones de la barra lateral -->
     <ul>
-        <li><a href="#">Lista de libros </a></li>
+        <li><a href="../listbooks/listbook.jsp">Lista de libros </a></li>
         <li><a href="#">Categorias</a></li>
         <li><a href="../userProfile/userProfile.jsp">Perfil </a></li>
         <li><a href="../login/login.jsp">Iniciar sesion </a></li>
         <li><a href="../createUsers/newUsers.jsp">Registrarse</a></li>
-
     </ul>
 </div>
 
@@ -35,17 +34,43 @@
 
     <!-- Lista de libros -->
     <div class="book-list">
+        <%
+            // Conexión a la base de datos
+            String url = "jdbc:postgresql://localhost:5432/UV_Library3";
+            String user = "postgres";
+            String password = "root";
+            Connection conn = null;
+            Statement stmt = null;
+            ResultSet rs = null;
+
+            try {
+                Class.forName("org.postgresql.Driver");
+                conn = DriverManager.getConnection(url, user, password);
+                stmt = conn.createStatement();
+                String query = "SELECT Titulo, Autor, ISBN FROM Libros";
+                rs = stmt.executeQuery(query);
+
+                while (rs.next()) {
+                    String titulo = rs.getString("Titulo");
+                    String autor = rs.getString("Autor");
+                    String isbn = rs.getString("ISBN");
+        %>
         <div class="book-item">
-            <img src="book_cover1.jpg" alt="Book Cover">
-            <h3>Título del Libro 1</h3>
-            <p>Autor 1</p>
+            
+            <h3><%= titulo %></h3>
+            <p><%= autor %></p>
+            <p>ISBN: <%= isbn %></p>
         </div>
-        <div class="book-item">
-            <img src="book_cover2.jpg" alt="Book Cover">
-            <h3>Título del Libro 2</h3>
-            <p>Autor 2</p>
-        </div>
-        <!-- Añadir más elementos de libros aquí -->
+        <%
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                if (rs != null) try { rs.close(); } catch (SQLException e) { e.printStackTrace(); }
+                if (stmt != null) try { stmt.close(); } catch (SQLException e) { e.printStackTrace(); }
+                if (conn != null) try { conn.close(); } catch (SQLException e) { e.printStackTrace(); }
+            }
+        %>
     </div>
 </div>
 
