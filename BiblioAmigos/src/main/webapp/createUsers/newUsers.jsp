@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Insertar Usuario</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/createUsers/styles.css">
 </head>
 <body>
 <h1>Insertar Usuario</h1>
-<form action=/newUserServlet" method="post">
+<form action="${pageContext.request.contextPath}/newUserServlet" method="post">
     <label for="nombre">Nombre:</label>
     <input type="text" id="nombre" name="nombre" required><br><br>
 

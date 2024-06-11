@@ -35,16 +35,15 @@ public class newUserServlet extends HttpServlet {
             boolean success = dao.insertUsuario(usuario);
             if (success) {
                 // Redirigir a una página de éxito
-                response.sendRedirect("exito.jsp");
+                response.sendRedirect("createUsers/exito.jsp");
             } else {
                 // Redirigir a una página de error
-                response.sendRedirect("error.jsp");
+                response.sendRedirect("createUsers/error.jsp");
             }
         } catch (SQLException e) {
             e.printStackTrace();
             // Redirigir a una página de error
-            response.sendRedirect("error.jsp");
+            response.sendRedirect("createUsers/error.jsp");
         }
     }
 }
-
