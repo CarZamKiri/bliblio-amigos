@@ -1,46 +1,35 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
-
+<%@ page contentType="text/html;charset=UTF-8" %>
 <!DOCTYPE html>
+<html lang="en">
 <head>
-
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro de Usuario - UV LIBRARY</title>
+    <title>Insertar Usuario</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div class="container">
-    <div class="back-button">
-        <a href="../userC/userIN.jsp" class="back-link">Atrás</a>
-    </div>
-    <h1>Registro de Usuario</h1>
-    <form action="register.jsp" method="post">
-        <div class="form-group">
-            <label for="Nombre">Nombre Completo:</label>
-            <input type="text" id="Nombre" name="Nombre" required>
-        </div>
+<h1>Insertar Usuario</h1>
+<form action=/newUserServlet" method="post">
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" name="nombre" required><br><br>
 
-        <div class="form-group">
-            <label for="NombreUsuario">Nombre de Usuario:</label>
-            <input type="text" id="NombreUsuario" name="NombreUsuario" required>
-        </div>
+    <label for="nombreUsuario">Nombre de Usuario:</label>
+    <input type="text" id="nombreUsuario" name="nombreUsuario" required><br><br>
 
-        <div class="form-group">
-            <label for="Email">Correo Electrónico:</label>
-            <input type="email" id="Email" name="Email" required>
-        </div>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required><br><br>
 
-        <div class="form-group">
-            <label for="Contrasena">Contraseña:</label>
-            <input type="password" id="Contrasena" name="Contrasena" required>
-        </div>
+    <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+    <input type="date" id="fechaNacimiento" name="fechaNacimiento" required><br><br>
 
-        <div class="form-group">
-            <input type="submit" value="Registrarse" class="submit-button">
-        </div>
-    </form>
-</div>
+    <label for="genero">Género:</label>
+    <select id="genero" name="genero" required>
+        <option value="1">Masculino</option>
+        <option value="2">Femenino</option>
+        <option value="3">Otro</option>
+    </select><br><br>
+
+    <button type="submit">Insertar Usuario</button>
+</form>
 </body>
 </html>
-
-

@@ -1,4 +1,4 @@
-package daos;
+package dao;
 
 import Modelo.ConexionBD;
 import javBeans.autores;
@@ -7,7 +7,8 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class autorDAO {
+public class AutoresDAO {
+
     // Create
     public boolean insertAutor(autores autor) throws SQLException {
         String sql = "INSERT INTO autores (nombre, biografia) VALUES (?, ?)";
