@@ -37,6 +37,24 @@ body {
     text-decoration: underline;
 }
 
+/* Notification Styles */
+.notification {
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.notification.success {
+    background-color: #4CAF50; /* Green */
+    color: white;
+}
+
+.notification.error {
+    background-color: #f44336; /* Red */
+    color: white;
+}
+
 /* Form Styles */
 h1 {
     text-align: center;
@@ -55,7 +73,9 @@ label {
 
 input[type="text"],
 input[type="email"],
-input[type="password"] {
+input[type="password"],
+input[type="date"],
+select {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
