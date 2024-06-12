@@ -80,6 +80,9 @@
             }
         %>
     </div>
+    <a href="../addBooks/add1.jsp" class="add-book-button">
+        <span class="add-book-icon">+</span> Agregar libros
+    </a>
 </div>
 </body>
 </html>

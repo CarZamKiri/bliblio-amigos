@@ -1,9 +1,10 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <title>Éxito</title>
+
 </head>
 <body>
 <h1>Registro exitoso</h1>

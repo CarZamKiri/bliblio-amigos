@@ -19,6 +19,7 @@ body {
     width: 90%;
     max-width: 800px;
     box-sizing: border-box;
+    position: relative; /* Add this line */
 }
 
 /* Back Button Styles */
@@ -87,6 +88,31 @@ h1 {
 .book-item p {
     margin: 5px 0;
     color: #555;
+}
+
+/* Add Book Button Styles */
+.add-book-button {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.add-book-button:hover {
+    background-color: #45a049;
+}
+
+.add-book-icon {
+    font-size: 20px;
+    margin-right: 10px;
 }
 
 /* Responsive Styles */

@@ -6,13 +6,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agregar Libro - UV LIBRARY</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/addBooks/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
 <div class="container">
     <h1>Agregar Libro</h1>
-    <form>
+    <form action = "${pageContext.request.contextPath}/newBookServlet/">
         <div class="form-group">
             <label for="titulo"><i class="fas fa-book"></i> Título:</label>
             <input type="text" id="titulo" name="titulo" required>
