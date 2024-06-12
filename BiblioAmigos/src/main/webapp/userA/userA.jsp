@@ -21,6 +21,16 @@
 
 <div class="header">
     <h1>UV LIBRARY</h1>
+    <div class="user-info">
+        <%
+            String username = (String) session.getAttribute("username");
+            if (username != null) {
+        %>
+        <p>Bienvenido, <%= username %></p>
+        <%
+            }
+        %>
+    </div>
 </div>
 
 <div class="container">
@@ -54,7 +64,6 @@
                     String isbn = rs.getString("ISBN");
         %>
         <div class="book-item">
-
             <h3><%= titulo %></h3>
             <p><%= autor %></p>
             <p>ISBN: <%= isbn %></p>
