@@ -1,11 +1,13 @@
 package javBeans;
 
+import java.sql.Date;
+
 public class usuarios {
     private int ID;
     private String nombre;
     private String nombreUsuario;
     private String email;
-    private String fechaNacimiento;
+    private Date fechaNacimiento;
     private int genero;
     private int estado;
 
@@ -16,7 +18,7 @@ public class usuarios {
         this.ID = ID;
     }
 
-    public usuarios(String nombre, String nombreUsuario, String email, String fechaNacimiento, int genero, int estado) {
+    public usuarios(String nombre, String nombreUsuario, String email, Date fechaNacimiento, int genero, int estado) {
         this.nombre = nombre;
         this.nombreUsuario = nombreUsuario;
         this.email = email;
@@ -25,7 +27,7 @@ public class usuarios {
         this.estado = estado;
     }
 
-    public usuarios(int ID, String nombre, String nombreUsuario, String email, String fechaNacimiento, int genero, int estado) {
+    public usuarios(int ID, String nombre, String nombreUsuario, String email, Date fechaNacimiento, int genero, int estado) {
         this.ID = ID;
         this.nombre = nombre;
         this.nombreUsuario = nombreUsuario;
@@ -67,11 +69,11 @@ public class usuarios {
         this.email = email;
     }
 
-    public String getFechaNacimiento() {
+    public Date getFechaNacimiento() {
         return fechaNacimiento;
     }
 
-    public void setFechaNacimiento(String fechaNacimiento) {
+    public void setFechaNacimiento(Date fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
 
@@ -98,9 +100,9 @@ public class usuarios {
                 ", nombre='" + nombre + '\'' +
                 ", nombreUsuario='" + nombreUsuario + '\'' +
                 ", email='" + email + '\'' +
-                ", fechaNacimiento='" + fechaNacimiento + '\'' +
-                ", genero='" + genero + '\'' +
-                ", estado='" + estado + '\'' +
+                ", fechaNacimiento=" + fechaNacimiento +
+                ", genero=" + genero +
+                ", estado=" + estado +
                 '}';
     }
 }
