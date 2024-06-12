@@ -1,22 +1,21 @@
 package daos;
 
 import Modelo.ConexionBD;
-import javBeans.autores;
+import javBeans.genero;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AutoresDAO {
+public class GeneroDAO {
 
     // Create
-    public boolean insertAutor(autores autor) throws SQLException {
-        String sql = "INSERT INTO autores (nombre, biografia) VALUES (?, ?)";
+    public boolean insertGenero(genero genero) throws SQLException {
+        String sql = "INSERT INTO genero (nombre) VALUES (?)";
         Connection connection = ConexionBD.obtenerConexion();
 
         PreparedStatement statement = connection.prepareStatement(sql);
-        statement.setString(1, autor.getNombre());
-        statement.setString(2, autor.getBiografia());
+        statement.setString(1, genero.getNombre());
 
         boolean rowInserted = statement.executeUpdate() > 0;
         statement.close();
@@ -25,39 +24,37 @@ public class AutoresDAO {
     }
 
     // Read
-    public List<autores> listAllAutores() throws SQLException {
-        List<autores> listAutores = new ArrayList<>();
-        String sql = "SELECT * FROM autores";
+    public List<genero> listAllGeneros() throws SQLException {
+        List<genero> listGeneros = new ArrayList<>();
+        String sql = "SELECT * FROM genero";
 
         Connection connection = ConexionBD.obtenerConexion();
         Statement statement = connection.createStatement();
         ResultSet resultSet = statement.executeQuery(sql);
 
         while (resultSet.next()) {
-            int idAutor = resultSet.getInt("idAutor");
+            int idGenero = resultSet.getInt("idGenero");
             String nombre = resultSet.getString("nombre");
-            String biografia = resultSet.getString("biografia");
 
-            autores autor = new autores(idAutor, nombre, biografia);
-            listAutores.add(autor);
+            genero genero = new genero(idGenero, nombre);
+            listGeneros.add(genero);
         }
 
         resultSet.close();
         statement.close();
         ConexionBD.cerrarConexion();
 
-        return listAutores;
+        return listGeneros;
     }
 
     // Update
-    public boolean updateAutor(autores autor) throws SQLException {
-        String sql = "UPDATE autores SET nombre = ?, biografia = ? WHERE idAutor = ?";
+    public boolean updateGenero(genero genero) throws SQLException {
+        String sql = "UPDATE genero SET nombre = ? WHERE idGenero = ?";
         Connection connection = ConexionBD.obtenerConexion();
 
         PreparedStatement statement = connection.prepareStatement(sql);
-        statement.setString(1, autor.getNombre());
-        statement.setString(2, autor.getBiografia());
-        statement.setInt(3, autor.getIdAutor());
+        statement.setString(1, genero.getNombre());
+        statement.setInt(2, genero.getIdGenero());
 
         boolean rowUpdated = statement.executeUpdate() > 0;
         statement.close();
@@ -66,12 +63,12 @@ public class AutoresDAO {
     }
 
     // Delete
-    public boolean deleteAutor(autores autor) throws SQLException {
-        String sql = "DELETE FROM autores WHERE idAutor = ?";
+    public boolean deleteGenero(genero genero) throws SQLException {
+        String sql = "DELETE FROM genero WHERE idGenero = ?";
         Connection connection = ConexionBD.obtenerConexion();
 
         PreparedStatement statement = connection.prepareStatement(sql);
-        statement.setInt(1, autor.getIdAutor());
+        statement.setInt(1, genero.getIdGenero());
 
         boolean rowDeleted = statement.executeUpdate() > 0;
         statement.close();
@@ -80,26 +77,26 @@ public class AutoresDAO {
     }
 
     // Get by ID
-    public autores getAutor(int idAutor) throws SQLException {
-        autores autor = null;
-        String sql = "SELECT * FROM autores WHERE idAutor = ?";
+    public genero getGenero(int idGenero) throws SQLException {
+        genero genero = null;
+        String sql = "SELECT * FROM genero WHERE idGenero = ?";
 
         Connection connection = ConexionBD.obtenerConexion();
         PreparedStatement statement = connection.prepareStatement(sql);
-        statement.setInt(1, idAutor);
+        statement.setInt(1, idGenero);
 
         ResultSet resultSet = statement.executeQuery();
 
         if (resultSet.next()) {
             String nombre = resultSet.getString("nombre");
-            String biografia = resultSet.getString("biografia");
-            autor = new autores(idAutor, nombre, biografia);
+            genero = new genero(idGenero, nombre);
         }
 
         resultSet.close();
         statement.close();
         ConexionBD.cerrarConexion();
 
-        return autor;
+        return genero;
     }
 }
+
