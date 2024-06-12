@@ -18,7 +18,7 @@ public class UsuariosDAO {
         statement.setString(1, usuario.getNombre());
         statement.setString(2, usuario.getNombreUsuario());
         statement.setString(3, usuario.getEmail());
-        statement.setString(4, usuario.getFechaNacimiento());
+        statement.setDate(4, usuario.getFechaNacimiento());
         statement.setInt(5, usuario.getGenero());
         statement.setInt(6, usuario.getEstado());
 
@@ -42,7 +42,7 @@ public class UsuariosDAO {
             String nombre = resultSet.getString("nombre");
             String nombreUsuario = resultSet.getString("nombreUsuario");
             String email = resultSet.getString("email");
-            String fechaNacimiento = resultSet.getString("fechaNacimiento");
+            Date fechaNacimiento = resultSet.getDate("fechaNacimiento");
             int genero = resultSet.getInt("genero");
             int estado = resultSet.getInt("estado");
 
@@ -66,7 +66,7 @@ public class UsuariosDAO {
         statement.setString(1, usuario.getNombre());
         statement.setString(2, usuario.getNombreUsuario());
         statement.setString(3, usuario.getEmail());
-        statement.setString(4, usuario.getFechaNacimiento());
+        statement.setDate(4, usuario.getFechaNacimiento());
         statement.setInt(5, usuario.getGenero());
         statement.setInt(6, usuario.getEstado());
         statement.setInt(7, usuario.getID());
@@ -106,7 +106,7 @@ public class UsuariosDAO {
             String nombre = resultSet.getString("nombre");
             String nombreUsuario = resultSet.getString("nombreUsuario");
             String email = resultSet.getString("email");
-            String fechaNacimiento = resultSet.getString("fechaNacimiento");
+            Date fechaNacimiento = resultSet.getDate("fechaNacimiento");
             int genero = resultSet.getInt("genero");
             int estado = resultSet.getInt("estado");
 

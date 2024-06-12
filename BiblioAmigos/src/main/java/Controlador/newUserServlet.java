@@ -9,7 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.Date;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 @WebServlet("/newUserServlet")
 public class newUserServlet extends HttpServlet {
@@ -20,8 +23,21 @@ public class newUserServlet extends HttpServlet {
         String nombre = request.getParameter("nombre");
         String nombreUsuario = request.getParameter("nombreUsuario");
         String email = request.getParameter("email");
-        String fechaNacimiento = request.getParameter("fechaNacimiento");
+        String fechaNacimientoStr = request.getParameter("fechaNacimiento");
         int genero = Integer.parseInt(request.getParameter("genero"));
+
+        // Convertir la fecha de String a java.sql.Date
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        Date fechaNacimiento = null;
+        try {
+            java.util.Date parsed = format.parse(fechaNacimientoStr);
+            fechaNacimiento = new Date(parsed.getTime());
+        } catch (ParseException e) {
+            e.printStackTrace();
+            // Redirigir a una página de error
+            response.sendRedirect("createUsers/error.jsp");
+            return;
+        }
 
         // El estado es "activo" por defecto
         int estado = 1;
