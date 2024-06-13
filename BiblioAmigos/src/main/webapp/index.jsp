@@ -5,31 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UV LIBRARY</title>
-    <style>
-        .aviso {
-            background-color: #4CAF50; /* Verde */
-            color: white;
-            padding: 16px;
-            text-align: center;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1;
-        }
+    <link rel="stylesheet" type="text/css" href="styles.css">
 
-        button {
-            background-color: #008CBA; /* Azul */
-            border: none;
-            color: white;
-            padding: 15px 32px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin-top: 50px; /* Espacio para separar el botón del aviso */
-            cursor: pointer;
-        }
-    </style>
     <script>
         // Función para realizar la conexión a la base de datos
         function conectarBD() {
@@ -60,6 +37,7 @@
     </script>
 </head>
 <body>
+<div class="navbar">Barra de navegación</div>
 <div id="aviso-conexion" class="aviso">Conexión establecida correctamente</div>
 <button onclick="window.location.href = 'userC/userIN.jsp'">Ir a otra página</button>
 </body>

@@ -1,0 +1,37 @@
+body {
+    background-image: url('images/man-7750139_1280 (Mediana).png');
+    background-size: cover; /* Hace que la imagen cubra toda la pantalla */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-position: center center; /* Centra la imagen en la pantalla */
+    background-attachment: fixed; /* Hace que la imagen se quede fija cuando se hace scroll */
+}
+
+.navbar {
+    backdrop-filter: blur(30px);
+    box-shadow: 0px 0px 30px rgba(227, 228, 237, 0.37);
+    border: 1.5px solid rgba(255, 255, 255, 0.18);
+}
+
+.aviso {
+    background-color: #4CAF50; /* Verde */
+    color: white;
+    padding: 16px;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+button {
+    background-color: #008CBA; /* Azul */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 50px; /* Espacio para separar el botón del aviso */
+    cursor: pointer;
+}
