@@ -37,8 +37,15 @@
     </script>
 </head>
 <body>
-<div class="navbar">Barra de navegación</div>
-<div id="aviso-conexion" class="aviso">Conexión establecida correctamente</div>
-<button onclick="window.location.href = 'userC/userIN.jsp'">Ir a otra página</button>
+<div class="navbar">
+    <ul>
+        <li><a href="listbooks/listbook.jsp">Lista de libros </a></li>
+        <li><a href="#">Categorias</a></li>
+        <li><a href="userProfile/userProfile.jsp">Perfil </a></li>
+        <li><a href="login/login.jsp">Iniciar sesion </a></li>
+        <li><a href="createUsers/newUsers.jsp">Registrarse</a></li>
+    </ul>
+</div>
+
 </body>
 </html>
