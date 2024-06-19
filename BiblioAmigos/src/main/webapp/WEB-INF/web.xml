@@ -3,4 +3,51 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
          version="5.0">
+
+
+
+    <servlet>
+        <servlet-name>JspLogin</servlet-name>
+        <jsp-file>/WEB-INF/views/common/login.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>JspLogin</servlet-name>
+        <url-pattern>/login.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>JspAdminInterface</servlet-name>
+        <jsp-file>/WEB-INF/views/admin/adminInterface.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>JspAdminInterface</servlet-name>
+        <url-pattern>/adminInterface.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>JspPrivateLibrary</servlet-name>
+        <jsp-file>/WEB-INF/views/user/privateLibrary.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>JspPrivateLibrary</servlet-name>
+        <url-pattern>/privateLibrary.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>JspProfile</servlet-name>
+        <jsp-file>/WEB-INF/views/user/profile.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>JspProfile</servlet-name>
+        <url-pattern>/profile.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>JspSignUp</servlet-name>
+        <jsp-file>/WEB-INF/views/user/signUp.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>JspSignUp</servlet-name>
+        <url-pattern>/signUp.jsp</url-pattern>
+    </servlet-mapping>
 </web-app>

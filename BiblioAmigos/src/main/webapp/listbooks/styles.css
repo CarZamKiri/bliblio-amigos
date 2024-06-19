@@ -1,132 +1,94 @@
-/* General Styles */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    background-image: url('../images/man-7750139_1280 (Mediana).png');
+    background-size: cover; /* Hace que la imagen cubra toda la pantalla */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-position: center center; /* Centra la imagen en la pantalla */
+    background-attachment: fixed; /* Hace que la imagen se quede fija cuando se hace scroll */
+}
+
+.navbar {
+    backdrop-filter: blur(30px);
+    box-shadow: 0px 0px 30px rgba(227, 228, 237, 0.37);
+    border: 1.5px solid rgba(255, 255, 255, 0.18);
+    align-items: center;
+}
+
+.navbar ul {
     margin: 0;
     padding: 0;
+    list-style-type: none;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    align-items: end;
+    justify-content: flex-end; /* Alinea los elementos de derecha a izquierda */
 }
 
-/* Container Styles */
-.container {
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    width: 90%;
-    max-width: 800px;
-    box-sizing: border-box;
-    position: relative; /* Add this line */
+.navbar .brand {
+    display: block;
+    color: #e7e7e7;
+    /* Remove padding from top/bottom and add 24px padding right/left */
+    padding: 0 24px;
+    font-size: 24px;
 }
 
-/* Back Button Styles */
-.back-button {
-    text-align: left;
-    margin-bottom: 20px;
+.navbar ul li a {
+    color: #e7e7e7;
+    padding: 24px;
+    /* Let's make the anchor display block.
+       This will ensure when we hover, focus, or is active we get the full width and height
+       of the container.
+    */
+    display: block;
 }
 
-.back-link {
-    color: #3498db;
-    text-decoration: none;
-    font-weight: bold;
+/* When a user hovers or focuses to a link, change the background */
+.navbar ul a:hover,
+.navbar ul a:focus {
+    background-color: #272727;
 }
 
-.back-link:hover {
-    text-decoration: underline;
-}
-
-/* Title Styles */
-h1 {
-    text-align: center;
-    color: #333;
-    margin-bottom: 20px;
-}
-
-/* Search Bar Styles */
-.search-bar {
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 20px;
-}
-
-.search-bar input {
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    width: 100%;
-    max-width: 300px;
-}
-
-/* Book List Styles */
-.book-list {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.book-item {
-    background-color: #f9f9f9;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-    transition: box-shadow 0.3s ease;
-}
-
-.book-item:hover {
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-}
-
-.book-item h2 {
-    margin: 0 0 10px;
-    color: #333;
-}
-
-.book-item p {
-    margin: 5px 0;
-    color: #555;
-}
-
-/* Add Book Button Styles */
-.add-book-button {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    background-color: #4CAF50;
+.aviso {
+    background-color: #4CAF50; /* Verde */
     color: white;
-    padding: 10px 20px;
+    padding: 16px;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+button {
+    background-color: #008CBA; /* Azul */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
     text-decoration: none;
-    border-radius: 50px;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 50px; /* Espacio para separar el botón del aviso */
+    cursor: pointer;
+}
+
+.search-form {
     display: flex;
     align-items: center;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
 }
 
-.add-book-button:hover {
-    background-color: #45a049;
+.search-form input[type="text"] {
+    padding: 5px;
+    font-size: 16px;
 }
 
-.add-book-icon {
-    font-size: 20px;
-    margin-right: 10px;
+.search-form button {
+    padding: 5px 10px;
+    font-size: 16px;
+    background-color: #008CBA;
+    color: white;
+    border: none;
+    cursor: pointer;
 }
 
-/* Responsive Styles */
-@media (max-width: 480px) {
-    .container {
-        padding: 15px;
-        width: 100%;
-    }
-
-    .book-item h2 {
-        font-size: 1.2em;
-    }
-
-    .book-item p {
-        font-size: 0.9em;
-    }
+.search-form button:hover {
+    background-color: #005f7a;
 }

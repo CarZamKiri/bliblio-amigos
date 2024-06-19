@@ -1,3 +1,4 @@
+
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="es">
@@ -5,47 +6,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UV LIBRARY</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
-
-    <script>
-        // Función para realizar la conexión a la base de datos
-        function conectarBD() {
-            fetch('ConexionServlet') // Llama a un servlet que maneja la conexión a la base de datos
-                .then(response => {
-                    if (response.ok) {
-                        console.log('Conexión establecida');
-                        // Aquí puedes agregar cualquier lógica adicional que desees ejecutar después de la conexión exitosa
-                    } else {
-                        console.error('Error al conectar a la base de datos');
-                    }
-                })
-                .catch(error => {
-                    console.error('Error al conectar a la base de datos:', error);
-                });
-        }
-
-        // Función que se ejecuta cuando la página se carga completamente
-        window.onload = function() {
-            conectarBD(); // Llama a la función para conectar a la base de datos cuando la página se carga
-
-            // Muestra el aviso de conexión exitosa durante 10 segundos
-            setTimeout(function() {
-                var aviso = document.getElementById("aviso-conexion");
-                aviso.style.display = "none"; // Oculta el aviso después de 10 segundos
-            }, 10000);
-        };
-    </script>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/styles.css">
 </head>
-<body>
-<div class="navbar">
-    <ul>
-        <li><a href="listbooks/listbook.jsp">Lista de libros </a></li>
-        <li><a href="#">Categorias</a></li>
-        <li><a href="userProfile/userProfile.jsp">Perfil </a></li>
-        <li><a href="login/login.jsp">Iniciar sesion </a></li>
-        <li><a href="createUsers/newUsers.jsp">Registrarse</a></li>
-    </ul>
-</div>
 
+<body>
+<nav class>
+    <ul>
+        <li><a href="${pageContext.request.contextPath}/index.jsp">Inicio</a></li>
+        <li><a href="${pageContext.request.contextPath}/signUp.jsp">Registrarse</a></li>
+        <li><a href="">Nosotros</a></li>
+        <li><a href="${pageContext.request.contextPath}/privateLibrary.jsp">BP - Eliminar</a></li>
+        <li><a href="${pageContext.request.contextPath}/adminInterface.jsp">AP - Eliminar</a></li>
+        <li style="float:right"><a class="active" href="${pageContext.request.contextPath}/login.jsp">Iniciar Sesion</a></li>
+    </ul>
+</nav>
+<div>
+    <h1 class="tituloPrincipal">UV LIBRARY</h1>
+    <h2 class="recomendaciones">Recomendaciones del mes</h2>
+</div>
+<div class="container">
+    <img src="assets/images/ElPsicoanalista.jpg" alt="Portada libro El Psicoanalista"/>
+    <img src="assets/images/AliceInWonderland.jpg" alt="Portada libro Alice In Wonderland"/>
+    <img src="assets/images/Hamlet.jpg" alt="Portada libro Hamlet"/>
+    <img src="assets/images/RebelionEnLaGranja.jpg" alt="Portada libro Rebelion en la granja"/>
+    <img src="assets/images/SoloLeveling.jpg" alt="Portada novela Solo Leveling"/>
+</div>
+<footer>
+
+</footer>
 </body>
 </html>
+

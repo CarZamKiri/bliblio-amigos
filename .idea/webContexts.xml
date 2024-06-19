@@ -3,7 +3,9 @@
   <component name="WebContextManager">
     <option name="state">
       <map>
+        <entry key="file://$PROJECT_DIR$/BiblioAmigos/src/main/webapp/WEB-INF/views/common/login.jsp" value="file://$PROJECT_DIR$/BiblioAmigos/src/main/webapp/WEB-INF/views/common" />
         <entry key="file://$PROJECT_DIR$/BiblioAmigos/src/main/webapp/createUsers/newUsers.jsp" value="file://$PROJECT_DIR$/BiblioAmigos/src/main/webapp/createUsers" />
+        <entry key="file://$PROJECT_DIR$/BiblioAmigos/src/main/webapp/index.jsp" value="file://$PROJECT_DIR$/BiblioAmigos/src/main/webapp" />
       </map>
     </option>
   </component>
