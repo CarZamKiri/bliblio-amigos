@@ -27,7 +27,7 @@
 
   <div class="profile-card">
     <div class="profile-header">
-      <img src="imagenes/perfil.jpg" alt="Foto de Perfil" class="profile-picture">
+      <img src="../../../assets/images/perfil.jpg" alt="Foto de Perfil" class="profile-picture">
       <h1>Nombre de Usuario</h1>
       <p class="bio">Biografía del usuario. Aquí puedes escribir algo sobre ti.</p>
       <p class="interests">Intereses: Lectura, Ciencia Ficción, Programación</p>

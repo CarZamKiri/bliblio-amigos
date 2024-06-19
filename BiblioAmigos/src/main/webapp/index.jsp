@@ -14,7 +14,7 @@
     <ul>
         <li><a href="${pageContext.request.contextPath}/index.jsp">Inicio</a></li>
         <li><a href="${pageContext.request.contextPath}/signUp.jsp">Registrarse</a></li>
-        <li><a href="">Nosotros</a></li>
+        <li><a href="${pageContext.request.contextPath}/aboutUs.jsp">Nosotros</a></li>
         <li><a href="${pageContext.request.contextPath}/privateLibrary.jsp">BP - Eliminar</a></li>
         <li><a href="${pageContext.request.contextPath}/adminInterface.jsp">AP - Eliminar</a></li>
         <li style="float:right"><a class="active" href="${pageContext.request.contextPath}/login.jsp">Iniciar Sesion</a></li>
