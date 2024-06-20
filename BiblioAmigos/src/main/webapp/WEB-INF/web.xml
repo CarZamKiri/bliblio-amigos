@@ -43,6 +43,15 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>JspSignUpMail</servlet-name>
+        <jsp-file>/WEB-INF/views/user/signUpMail.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>JspSignUpMail</servlet-name>
+        <url-pattern>/signUpMail.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>JspSignUp</servlet-name>
         <jsp-file>/WEB-INF/views/user/signUp.jsp</jsp-file>
     </servlet>

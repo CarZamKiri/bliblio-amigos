@@ -2,7 +2,7 @@ package model;
 
 import java.sql.Date;
 
-public class usuarios {
+public class usuario {
     private int ID;
     private String nombre;
     private String nombreUsuario;
@@ -11,14 +11,14 @@ public class usuarios {
     private int genero;
     private int estado;
 
-    public usuarios() {
+    public usuario() {
     }
 
-    public usuarios(int ID) {
+    public usuario(int ID) {
         this.ID = ID;
     }
 
-    public usuarios(String nombre, String nombreUsuario, String email, Date fechaNacimiento, int genero, int estado) {
+    public usuario(String nombre, String nombreUsuario, String email, Date fechaNacimiento, int genero, int estado) {
         this.nombre = nombre;
         this.nombreUsuario = nombreUsuario;
         this.email = email;
@@ -27,7 +27,7 @@ public class usuarios {
         this.estado = estado;
     }
 
-    public usuarios(int ID, String nombre, String nombreUsuario, String email, Date fechaNacimiento, int genero, int estado) {
+    public usuario(int ID, String nombre, String nombreUsuario, String email, Date fechaNacimiento, int genero, int estado) {
         this.ID = ID;
         this.nombre = nombre;
         this.nombreUsuario = nombreUsuario;

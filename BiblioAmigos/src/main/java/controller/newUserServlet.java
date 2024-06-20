@@ -1,7 +1,7 @@
 package controller;
 
 import dao.UsuariosDAO;
-import model.usuarios;
+import model.usuario;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -43,7 +43,7 @@ public class newUserServlet extends HttpServlet {
         int estado = 1;
 
         // Crear el objeto usuarios
-        usuarios usuario = new usuarios(nombre, nombreUsuario, email, fechaNacimiento, genero, estado);
+        usuario usuario = new usuario(nombre, nombreUsuario, email, fechaNacimiento, genero, estado);
 
         // Insertar el usuario en la base de datos
         UsuariosDAO dao = new UsuariosDAO();

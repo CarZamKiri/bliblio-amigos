@@ -1,7 +1,7 @@
 package dao;
 
 import util.ConexionBD;
-import model.usuarios;
+import model.usuario;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -10,7 +10,7 @@ import java.util.List;
 public class UsuariosDAO {
 
     // Create
-    public boolean insertUsuario(usuarios usuario) throws SQLException {
+    public boolean insertUsuario(usuario usuario) throws SQLException {
         String sql = "INSERT INTO usuarios (nombre, nombreUsuario, email, fechaNacimiento, genero, estado) VALUES (?, ?, ?, ?, ?, ?)";
         Connection connection = ConexionBD.obtenerConexion();
 
@@ -29,8 +29,8 @@ public class UsuariosDAO {
     }
 
     // Read
-    public List<usuarios> listAllUsuarios() throws SQLException {
-        List<usuarios> listUsuarios = new ArrayList<>();
+    public List<usuario> listAllUsuarios() throws SQLException {
+        List<usuario> listUsuarios = new ArrayList<>();
         String sql = "SELECT * FROM usuarios";
 
         Connection connection = ConexionBD.obtenerConexion();
@@ -46,7 +46,7 @@ public class UsuariosDAO {
             int genero = resultSet.getInt("genero");
             int estado = resultSet.getInt("estado");
 
-            usuarios usuario = new usuarios(ID, nombre, nombreUsuario, email, fechaNacimiento, genero, estado);
+            usuario usuario = new usuario(ID, nombre, nombreUsuario, email, fechaNacimiento, genero, estado);
             listUsuarios.add(usuario);
         }
 
@@ -58,7 +58,7 @@ public class UsuariosDAO {
     }
 
     // Update
-    public boolean updateUsuario(usuarios usuario) throws SQLException {
+    public boolean updateUsuario(usuario usuario) throws SQLException {
         String sql = "UPDATE usuarios SET nombre = ?, nombreUsuario = ?, email = ?, fechaNacimiento = ?, genero = ?, estado = ? WHERE ID = ?";
         Connection connection = ConexionBD.obtenerConexion();
 
@@ -78,7 +78,7 @@ public class UsuariosDAO {
     }
 
     // Delete
-    public boolean deleteUsuario(usuarios usuario) throws SQLException {
+    public boolean deleteUsuario(usuario usuario) throws SQLException {
         String sql = "DELETE FROM usuarios WHERE ID = ?";
         Connection connection = ConexionBD.obtenerConexion();
 
@@ -92,8 +92,8 @@ public class UsuariosDAO {
     }
 
     // Get by ID
-    public usuarios getUsuario(int id) throws SQLException {
-        usuarios usuario = null;
+    public usuario getUsuario(int id) throws SQLException {
+        usuario usuario = null;
         String sql = "SELECT * FROM usuarios WHERE ID = ?";
 
         Connection connection = ConexionBD.obtenerConexion();
@@ -110,7 +110,7 @@ public class UsuariosDAO {
             int genero = resultSet.getInt("genero");
             int estado = resultSet.getInt("estado");
 
-            usuario = new usuarios(id, nombre, nombreUsuario, email, fechaNacimiento, genero, estado);
+            usuario = new usuario(id, nombre, nombreUsuario, email, fechaNacimiento, genero, estado);
         }
 
         resultSet.close();
