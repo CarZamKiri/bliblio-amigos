@@ -1,5 +1,7 @@
 package controller;
+
 import util.ConexionBD;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,25 +21,38 @@ public class checkEmailServlet extends HttpServlet {
         boolean exists = false;
 
         Connection conn = null;
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+
         try {
             conn = ConexionBD.obtenerConexion();
-            String sql = "SELECT * FROM Users WHERE email = ?";
-            PreparedStatement statement = conn.prepareStatement(sql);
+            String sql = "SELECT mail FROM public.\"Users\" WHERE mail = ?";
+            statement = conn.prepareStatement(sql);
             statement.setString(1, email);
-            ResultSet resultSet = statement.executeQuery();
+            resultSet = statement.executeQuery();
 
             if (resultSet.next()) {
                 exists = true;
             }
-
-            resultSet.close();
-            statement.close();
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            ConexionBD.cerrarConexion();
+            try {
+                if (resultSet != null) {
+                    resultSet.close();
+                }
+                if (statement != null) {
+                    statement.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
 
+        response.setContentType("text/plain");
         PrintWriter out = response.getWriter();
         if (exists) {
             out.print("exists");

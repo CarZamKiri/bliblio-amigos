@@ -24,10 +24,10 @@
           data: {email: email},
           success: function(response) {
             if (response === "exists") {
-              $("#passwordField").show();
-            } else {
               $("#passwordField").hide();
-              alert("Correo no registrado.");
+              alert("Correo ya registrado.");
+            } else {
+              $("#passwordField").show();
             }
           }
         });
