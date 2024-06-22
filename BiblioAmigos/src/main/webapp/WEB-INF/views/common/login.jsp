@@ -14,14 +14,8 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/styles.css">
 </head>
 <body>
-<nav class>
-    <ul>
-        <li><a href="${pageContext.request.contextPath}/index.jsp">Inicio</a></li>
-        <li><a href="${pageContext.request.contextPath}/signUp.jsp">Registrarse</a></li>
-        <li><a href="${pageContext.request.contextPath}/aboutUs.jsp">Nosotros</a></li>
-        <li style="float:right"><a class="active" href="${pageContext.request.contextPath}/login.jsp">Iniciar Sesion</a></li>
-    </ul>
-</nav>
+<jsp:include page="/WEB-INF/views/common/navbar.jsp" />
+
 <div class="containerForm">
 
     <h1>UV LIBRARY</h1>

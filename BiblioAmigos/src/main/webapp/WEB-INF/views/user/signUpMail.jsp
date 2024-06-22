@@ -32,24 +32,29 @@
           }
         });
       });
+
+      $("#registerForm").on('submit', function(event) {
+        var password = $("#password").val();
+        var confirmPassword = $("#confirmPassword").val();
+        if (password !== confirmPassword) {
+          event.preventDefault();
+          alert("Las contraseñas no coinciden.");
+        }
+      });
     });
   </script>
 </head>
 <body>
 <nav>
-  <ul>
-    <li><a href="${pageContext.request.contextPath}/index.jsp">Inicio</a></li>
-    <li><a href="${pageContext.request.contextPath}/WEB-INF/views/user/register.jsp">Registrarse</a></li>
-    <li><a href="#">Nosotros</a></li>
-    <li style="float:right"><a class="active" href="${pageContext.request.contextPath}/WEB-INF/views/user/profile.jsp">Iniciar Sesion</a></li>
-  </ul>
+  <jsp:include page="/WEB-INF/views/common/navbar.jsp" />
 </nav>
 <div class="containerForm">
   <h1>UV LIBRARY</h1>
-  <form action="${pageContext.request.contextPath}/login" method="post">
+  <form id="registerForm" action="${pageContext.request.contextPath}/registerServlet" method="post">
     <input type="text" id="email" name="email" placeholder="Correo Electronico" required><br>
     <div id="passwordField" style="display:none;">
-      <input type="password" name="password" placeholder="Contraseña" required><br>
+      <input type="password" id="password" name="password" placeholder="Contraseña" required><br>
+      <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirmar Contraseña" required><br>
       <button type="submit">Crear Cuenta</button>
     </div>
   </form>

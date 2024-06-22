@@ -10,16 +10,9 @@
 </head>
 
 <body>
-<nav class>
-    <ul>
-        <li><a href="${pageContext.request.contextPath}/index.jsp">Inicio</a></li>
-        <li><a href="${pageContext.request.contextPath}/signUpMail.jsp">Registrarse</a></li>
-        <li><a href="${pageContext.request.contextPath}/aboutUs.jsp">Nosotros</a></li>
-        <li><a href="${pageContext.request.contextPath}/privateLibrary.jsp">BP - Eliminar</a></li>
-        <li><a href="${pageContext.request.contextPath}/adminInterface.jsp">AP - Eliminar</a></li>
-        <li style="float:right"><a class="active" href="${pageContext.request.contextPath}/login.jsp">Iniciar Sesion</a></li>
-    </ul>
-</nav>
+
+<jsp:include page="/WEB-INF/views/common/navbar.jsp" />
+
 <div>
     <h1 class="tituloPrincipal">UV LIBRARY</h1>
     <h2 class="recomendaciones">Recomendaciones del mes</h2>

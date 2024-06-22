@@ -68,4 +68,13 @@
         <servlet-name>JspAboutUs</servlet-name>
         <url-pattern>/aboutUs.jsp</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>JspNavbar</servlet-name>
+        <jsp-file>/WEB-INF/views/common/navbar.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>JspNavbar</servlet-name>
+        <url-pattern>/navbar.jsp</url-pattern>
+    </servlet-mapping>
 </web-app>
