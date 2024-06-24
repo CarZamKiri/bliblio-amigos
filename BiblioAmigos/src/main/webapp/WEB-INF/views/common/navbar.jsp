@@ -13,7 +13,6 @@
     <li><a href="${pageContext.request.contextPath}/addBooks/add1.jsp">Eliminar</a></li>
     <li><a href="${pageContext.request.contextPath}/signUpMail.jsp">Registrarse</a></li>
     <li><a href="${pageContext.request.contextPath}/aboutUs.jsp">Nosotros</a></li>
-    <li><a href="${pageContext.request.contextPath}/privateLibrary.jsp">BP - Eliminar</a></li>
     <li><a href="${pageContext.request.contextPath}/adminInterface.jsp">AP - Eliminar</a></li>
     <li style="float:right"><a class="active" href="${pageContext.request.contextPath}/login.jsp">Iniciar Sesión</a></li>
   </ul>

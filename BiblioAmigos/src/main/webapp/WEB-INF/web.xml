@@ -77,4 +77,6 @@
         <servlet-name>JspNavbar</servlet-name>
         <url-pattern>/navbar.jsp</url-pattern>
     </servlet-mapping>
+
+
 </web-app>
