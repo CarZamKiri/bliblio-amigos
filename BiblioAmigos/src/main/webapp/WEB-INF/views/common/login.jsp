@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -10,25 +11,18 @@
 
 <div class="containerForm">
     <h1>UV LIBRARY</h1>
-
-    <%
-        String errorMessage = (String) request.getAttribute("errorMessage");
-        if (errorMessage != null) {
-    %>
-    <p style="color:red;"><%= errorMessage %></p>
-    <%
-        }
-    %>
-
+    <% String error = request.getParameter("error"); %>
+    <% if (error != null) { %>
+    <p style="color:red;">Nombre de usuario o contraseña incorrectos. Inténtalo de nuevo.</p>
+    <% } %>
     <form action="${pageContext.request.contextPath}/loginServlet" method="post">
-        <input type="text" name="email" placeholder="Correo Electrónico" required><br>
+        <input type="text" name="username" placeholder="Correo Electrónico" required><br>
         <input type="password" name="password" placeholder="Contraseña" required><br>
         <button type="submit">Iniciar Sesión</button>
     </form>
-
     <a href="#">¿Perdiste tu contraseña?</a><br>
     <p>¿Eres nuevo?</p>
-    <form action="${pageContext.request.contextPath}/WEB-INF/views/user/register.jsp">
+    <form action="${pageContext.request.contextPath}/register.jsp">
         <input type="submit" value="Registrarse">
     </form>
 </div>

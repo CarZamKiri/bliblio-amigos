@@ -1,8 +1,7 @@
 package controller;
 
-import org.mindrot.jbcrypt.BCrypt;
 import util.ConexionBD;
-
+import org.mindrot.jbcrypt.BCrypt;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,44 +17,36 @@ import java.sql.SQLException;
 @WebServlet("/loginServlet")
 public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String email = request.getParameter("email");
+        String username = request.getParameter("username");
         String password = request.getParameter("password");
 
         Connection conn = null;
         try {
             conn = ConexionBD.obtenerConexion();
-            String sql = "SELECT id_user, password FROM Public.\"Users\" WHERE mail = ?";
+            String sql = "SELECT id_user, password FROM public.\"Users\" WHERE mail = ?";
             PreparedStatement statement = conn.prepareStatement(sql);
-            statement.setString(1, email);
+            statement.setString(1, username);
             ResultSet resultSet = statement.executeQuery();
 
             if (resultSet.next()) {
-                String hashedPassword = resultSet.getString("password");
-                if (BCrypt.checkpw(password, hashedPassword)) {
-                    int userId = resultSet.getInt("id_user");
-
-                    // Create session and set user attributes
+                String storedPassword = resultSet.getString("password");
+                if (BCrypt.checkpw(password, storedPassword)) {
                     HttpSession session = request.getSession();
-                    session.setAttribute("userId", userId);
-                    session.setAttribute("email", email);
-
-                    // Redirect to the user's profile or home page
-                    response.sendRedirect("privateLibrary.jsp");
+                    session.setAttribute("user", username);
+                    session.setAttribute("userId", resultSet.getInt("id_user"));
+                    response.sendRedirect(request.getContextPath() + "/privateLibrary.jsp");
                 } else {
-                    request.setAttribute("errorMessage", "Nombre de usuario o contraseña incorrectos. Inténtalo de nuevo.");
-                    request.getRequestDispatcher("/login.jsp").forward(request, response);
+                    response.sendRedirect(request.getContextPath() + "/login.jsp?error=invalidCredentials");
                 }
             } else {
-                request.setAttribute("errorMessage", "Nombre de usuario o contraseña incorrectos. Inténtalo de nuevo.");
-                request.getRequestDispatcher("/login.jsp").forward(request, response);
+                response.sendRedirect(request.getContextPath() + "/login.jsp?error=invalidCredentials");
             }
 
             resultSet.close();
             statement.close();
         } catch (SQLException e) {
             e.printStackTrace();
-            request.setAttribute("errorMessage", "Error al iniciar sesión. Inténtalo de nuevo.");
-            request.getRequestDispatcher("/login.jsp").forward(request, response);
+            response.sendRedirect(request.getContextPath() + "/login.jsp?error=sqlException");
         } finally {
             ConexionBD.cerrarConexion();
         }

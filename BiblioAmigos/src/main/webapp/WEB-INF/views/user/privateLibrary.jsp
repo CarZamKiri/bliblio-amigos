@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="javax.servlet.http.HttpSession" %>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -17,10 +18,17 @@
 </head>
 <body>
 
+<%
+  if (session == null || session.getAttribute("user") == null) {
+    response.sendRedirect(request.getContextPath() + "/login.jsp");
+    return;
+  }
+%>
+
 <nav class>
   <ul>
-    <li><a href="${pageContext.request.contextPath}/index.jsp">Cerrar Sesion</a></li>
-    <li><a href="${pageContext.request.contextPath}/privateLibrary.jsp">Mi Biblioteca</a></li>
+    <li><a href="${pageContext.request.contextPath}/logoutServlet">Cerrar Sesion</a></li>
+    <li><a href="${pageContext.request.contextPath}/addBook.jsp">Agregar Libro</a></li>
     <li style="float:right"><a class="active" href="${pageContext.request.contextPath}/profile.jsp">Mi perfil</a></li>
   </ul>
 </nav>
