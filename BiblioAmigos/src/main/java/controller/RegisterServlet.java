@@ -1,4 +1,5 @@
 package controller;
+
 import org.mindrot.jbcrypt.BCrypt;
 import util.ConexionBD;
 
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 @WebServlet("/registerServlet")
@@ -17,6 +19,13 @@ public class RegisterServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
+        String name = request.getParameter("name");
+        String lastName = request.getParameter("lastName");
+        String secondSurname = request.getParameter("secondSurname");
+        String username = request.getParameter("username");
+        String date = request.getParameter("date");
+        int gender = Integer.parseInt(request.getParameter("gender"));
+        boolean isAdmin = false;
 
         // Hash the password
         String hashedPassword = BCrypt.hashpw(password, BCrypt.gensalt());
@@ -24,22 +33,61 @@ public class RegisterServlet extends HttpServlet {
         Connection conn = null;
         try {
             conn = ConexionBD.obtenerConexion();
-            String sql = "INSERT INTO Public.\"Users\" (mail, password) VALUES (?, ?)";
-            PreparedStatement statement = conn.prepareStatement(sql);
-            statement.setString(1, email);
-            statement.setString(2, hashedPassword);
-            int rowsInserted = statement.executeUpdate();
-            if (rowsInserted > 0) {
-                response.sendRedirect("signUp.jsp"); // Redirige a la página de inicio de sesión después del registro exitoso
-            } else {
-                response.sendRedirect("signUp.jsp?error=registrationFailed"); // Redirige de nuevo al registro con un mensaje de error
+            conn.setAutoCommit(false);
+
+            // Insert into Users table
+            String sqlUser = "INSERT INTO Public.\"Users\" (mail, password, admin) VALUES (?, ?, ?) RETURNING id_user";
+            PreparedStatement stmtUser = conn.prepareStatement(sqlUser);
+            stmtUser.setString(1, email);
+            stmtUser.setString(2, hashedPassword);
+            stmtUser.setBoolean(3, isAdmin);
+            ResultSet rsUser = stmtUser.executeQuery();
+            int userId = 0;
+            if (rsUser.next()) {
+                userId = rsUser.getInt("id_user");
             }
-            statement.close();
+            rsUser.close();
+            stmtUser.close();
+
+            // Insert into Person table
+            String sqlPerson = "INSERT INTO Public.\"Person\" (fk_user, name, last_name, second_surname, username, date, gender) VALUES (?, ?, ?, ?, ?, ?, ?)";
+            PreparedStatement stmtPerson = conn.prepareStatement(sqlPerson);
+            stmtPerson.setInt(1, userId);
+            stmtPerson.setString(2, name);
+            stmtPerson.setString(3, lastName);
+            stmtPerson.setString(4, secondSurname);
+            stmtPerson.setString(5, username);
+            stmtPerson.setDate(6, java.sql.Date.valueOf(date));
+            stmtPerson.setInt(7, gender);
+
+            int rowsInserted = stmtPerson.executeUpdate();
+            if (rowsInserted > 0) {
+                conn.commit();
+                response.sendRedirect("login.jsp");
+            } else {
+                conn.rollback();
+                response.sendRedirect("signUpMail.jsp?error=registrationFailed");
+            }
+            stmtPerson.close();
         } catch (SQLException e) {
             e.printStackTrace();
-            response.sendRedirect("signUp.jsp?error=sqlException"); // Redirige de nuevo al registro con un mensaje de error
+            if (conn != null) {
+                try {
+                    conn.rollback();
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+            }
+            response.sendRedirect("signUpMail.jsp?error=sqlException");
         } finally {
-            ConexionBD.cerrarConexion();
+            if (conn != null) {
+                try {
+                    conn.setAutoCommit(true);
+                    ConexionBD.cerrarConexion();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 

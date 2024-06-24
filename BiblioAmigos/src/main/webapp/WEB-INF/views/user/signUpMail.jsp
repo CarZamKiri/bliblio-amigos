@@ -1,11 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Carlos
-  Date: 19/06/2024
-  Time: 11:22 PM
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -51,10 +43,20 @@
 <div class="containerForm">
   <h1>UV LIBRARY</h1>
   <form id="registerForm" action="${pageContext.request.contextPath}/registerServlet" method="post">
-    <input type="text" id="email" name="email" placeholder="Correo Electronico" required><br>
+    <input type="text" id="email" name="email" placeholder="Correo Electrónico" required><br>
     <div id="passwordField" style="display:none;">
       <input type="password" id="password" name="password" placeholder="Contraseña" required><br>
       <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirmar Contraseña" required><br>
+      <input type="text" name="name" placeholder="Nombre" required><br>
+      <input type="text" name="lastName" placeholder="Apellido Paterno" required><br>
+      <input type="text" name="secondSurname" placeholder="Apellido Materno"><br>
+      <input type="text" name="username" placeholder="Nombre de Usuario" required><br>
+      <input type="date" name="date" placeholder="Fecha de Nacimiento" required><br>
+      <select name="gender" required>
+        <option value="1">Masculino</option>
+        <option value="2">Femenino</option>
+        <option value="3">Otro</option>
+      </select><br>
       <button type="submit">Crear Cuenta</button>
     </div>
   </form>
